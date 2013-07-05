@@ -25,13 +25,10 @@
 			this.markElements();
 		}.bind(this), 50);
 		this.clearNodesInterval = setInterval(function() {
-			var els = this.elements;
-			//this.elements.forEach(function(el) {
-			for(var i = 0; i < els.length; i++) {
-				els[i].node.remove();
-			}
-			//});
-			//this.elements = [];
+			this.elements.forEach(function(el) {
+				el.node.remove();
+			});
+			this.elements = [];
 		}.bind(this), 100);
 	};
 
@@ -49,12 +46,9 @@
 	};
 
 	F.prototype.markElements = function() {
-		//this.elements.forEach(function(element) {
-		var els = this.elements;
-		for(var i = 0; i < els.length; i++) {
-			els[i].appended = true;
-		}
-		//});
+		this.elements.forEach(function(element) {
+			element.appended = true;
+		});
 	};
 
 	F.prototype.stop = function() {
